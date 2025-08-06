@@ -8,6 +8,14 @@ const CandyShopApp = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('all');
 
+
+  useEffect(() => {
+    if (window.Telegram?.WebApp) {
+      window.Telegram.WebApp.ready();     // Telegram Mini App tayyor bo‘ladi
+      window.Telegram.WebApp.expand();    // Mini app oynasi maksimalga chiqariladi (optional)
+    }
+  }, []);
+
   // Sample data
   const categories = [
     { id: 'promotions', name: 'Aksiyalar', icon: '🎁', color: 'bg-red-500' },
